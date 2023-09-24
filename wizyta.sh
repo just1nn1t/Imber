@@ -6,6 +6,7 @@ pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
 scan_dir() {
 	local dir="$1"
 	local orig_dir="$(pwd)"
+ 	local opfile="cred.txt"
 	
 	#loop through content
 	for item in "$dir"/*; do
@@ -13,7 +14,8 @@ scan_dir() {
 		if [ -f "$item" ]; then
             		find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
                 		if grep -qE "$usr_patt" "$file" && grep -qE "$pwd_patt" "$file"; then
-                    			grep -E "$usr_patt|$pwd_patt" "$file"
+		  			# Append to the output file
+                    			grep -E "$usr_patt|$pwd_patt" "$file" >> "$output_file"
                 		fi
            		 done
         	fi
@@ -24,7 +26,6 @@ scan_dir() {
 		fi
 	done
 	
-	#after scanning the subdir, return to the original
 	cd "$orig_dir"
 }
 
