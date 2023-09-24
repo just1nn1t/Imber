@@ -41,4 +41,22 @@ start_scan() {
 	scan_dir "$scanable"
 }
 
+loading() {
+
+spinner="/-\|"
+
+echo -n "Loading... "
+while true; do
+    for i in ${spinner}; do
+        echo -n "$i"
+        echo -en "\b"
+        sleep 0.1
+    done
+done
+}
+
+loading
+
 start_scan
+
+echo "The scan has ended."
