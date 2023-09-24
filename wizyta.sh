@@ -15,7 +15,7 @@ scan_dir() {
             		find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
                 		if grep -qE "$usr_patt" "$file" && grep -qE "$pwd_patt" "$file"; then
 		  			# Append to the output file
-                    			grep -E "$usr_patt|$pwd_patt" "$file" >> "$output_file"
+                    			grep -E "$usr_patt|$pwd_patt" "$file" >> "$opfile"
                 		fi
            		 done
         	fi
