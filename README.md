@@ -1,5 +1,5 @@
 # Wizyta
-Wizyta is a scanner written in bash. Its main purpose is to find predefined information (such as usr/pwd). It does this by going through all the files, or if it finds a directory it opens it, goes through its elements, then exits and continues searching in the original directory where you started the scanner.
+Wizyta is a scanner written in bash. Its main purpose is to find predefined information (such as usr/pwd). It does this by going through all the files, or if it finds a directory it opens it, goes through its elements, then exits and continues searching in the given directory.
 
 ## Installation
 
