@@ -10,6 +10,9 @@ https://github.com/just1nn1t/wizyta.git
 ## Usage
 
 ```python
+
+chmod +x wizyta.sh
+
 ./wizyta.sh </path/of/dir>
 
 ```
