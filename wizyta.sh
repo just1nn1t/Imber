@@ -20,7 +20,7 @@ scan_dir() {
 																				grep -E "$usr_patt|$pwd_patt" "$file" >> "$opfile"
 	                		fi
            		 done
-			fi
+		fi
 
 		#if it's a directory
 		elif [ -d "$item" ]; then
