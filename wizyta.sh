@@ -15,12 +15,12 @@ scan_dir() {
 		#if it's a file
 		if [ -f "$item" ]; then
             		find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
-                		if grep -qE "$usr_patt" "$file" && grep -qE "$pwd_patt" "$file"; then
-		  			# Append to the output file
-                    			grep -E "$usr_patt|$pwd_patt" "$file" >> "$opfile"
-                		fi
+	                		if grep -qE "$usr_patt" "$file" && grep -qE "$pwd_patt" "$file"; then
+																				# Append to the output file
+																				grep -E "$usr_patt|$pwd_patt" "$file" >> "$opfile"
+	                		fi
            		 done
-        	fi
+			fi
 
 		#if it's a directory
 		elif [ -d "$item" ]; then
