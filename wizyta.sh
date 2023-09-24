@@ -1,7 +1,9 @@
 #!/bin/bash
 
+
 usr_patt="username[[:space:]]*=[[:space:]]*"
 pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
+
 
 scan_dir() {
 	local dir="$1"
@@ -29,6 +31,7 @@ scan_dir() {
 	cd "$orig_dir"
 }
 
+
 start_scan() {
 	read -p "Enter the directory path to start scanning: " scanable
 	
@@ -41,21 +44,25 @@ start_scan() {
 	scan_dir "$scanable"
 }
 
+
 loading() {
+	chars="/-\/-\"
+	sc=0
+	dur_sec=5
+	end=$((SECONDS + dur_sec))
 
-spinner="/-\|"
-
-echo -n "Loading... "
-while true; do
-    for i in ${spinner}; do
-        echo -n "$i"
-        echo -en "\b"
-        sleep 0.1
-    done
-done
+	#SEC less than endtime
+	while [ $SECONDS -lt $end ]; do
+		printf "\r\b${chars:sc++:1} $1"
+		
+		#check to see if sc?=len(chars)
+  ((sc==${#chars})) && sc=0
+  sleep 0.2
+	done
+ echo
 }
 
-loading
+loading "Loading..."
 
 start_scan
 
