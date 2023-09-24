@@ -56,8 +56,8 @@ loading() {
 		printf "\r\b${chars:sc++:1} $1"
 		
 		#check to see if sc?=len(chars)
-  ((sc==${#chars})) && sc=0
-  sleep 0.2
+		((sc==${#chars})) && sc=0
+		sleep 0.2
 	done
  echo
 }
