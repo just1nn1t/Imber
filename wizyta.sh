@@ -59,7 +59,7 @@ loading() {
 		((sc==${#chars})) && sc=0
 		sleep 0.2
 	done
- echo
+	echo
 }
 
 loading "Loading..."
