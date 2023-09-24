@@ -46,7 +46,7 @@ start_scan() {
 
 
 loading() {
-	chars="/-\/-\"
+	chars="/-\"
 	sc=0
 	dur_sec=5
 	end=$((SECONDS + dur_sec))
