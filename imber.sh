@@ -1,9 +1,6 @@
 #!/bin/bash
 
-
-usr_patt="username[[:space:]]*=[[:space:]]*"
 pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
-
 
 scan_dir() {
 	local dir="$1"
@@ -15,9 +12,9 @@ scan_dir() {
 		#if it's a file
 		if [ -f "$item" ]; then
             		find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
-	                		if grep -qE "$usr_patt" "$file" && grep -qE "$pwd_patt" "$file"; then
-																				# Append to the output file
-																				grep -E "$usr_patt|$pwd_patt" "$file" >> "$opfile"
+	                		if grep -qE "$pwd_patt" "$file"; then
+						# Append to the output file
+						grep -E "$pwd_patt" "$file" >> "$opfile"
 	                		fi
            		 done
 		fi
