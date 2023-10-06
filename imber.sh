@@ -45,8 +45,8 @@ start_scan() {
 loading() {
 	chars="/-\|"
 	sc=0
-	dur_sec=5
-	end=$((SECONDS + dur_sec))
+	dur=5
+	end=$((SECONDS + dur))
 
 	#SEC less than endtime
 	while [ $SECONDS -lt $end ]; do
