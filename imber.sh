@@ -13,8 +13,8 @@ scan_dir() {
 		if [ -f "$item" ]; then
             		find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
 	                		if grep -qE "$pwd_patt" "$file"; then
-						    # Append to the output file
-						    grep -E "$pwd_patt" "$file" >> "$opfile"
+						       # Append to the output file
+						       grep -E "$pwd_patt" "$file" >> "$opfile"
 	                		fi
            		 done
 		fi
