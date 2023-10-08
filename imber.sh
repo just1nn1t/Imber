@@ -59,6 +59,16 @@ loading() {
 	echo
 }
 
+
+cat << "EOF"
+	 ___         _              
+	|_ _| _ __  | |__  _ _  ___ 
+	 | | | '  \ |  _ \| '_|/ -_)
+	|___||_|_|_||____/|_|  \___|
+																									  by 1nn1t																											
+EOF
+
+
 loading "Loading..."
 
 start_scan
