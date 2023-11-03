@@ -5,18 +5,18 @@ pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
 scan_dir() {
 	local dir="$1"
 	local orig_dir="$(pwd)"
- 	local opfile="cred.txt"
+	local opfile="cred.txt"
 	
 	#loop through content
 	for item in "$dir"/*; do
 		#if it's a file
 		if [ -f "$item" ]; then
-            		find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
-	                		if grep -qE "$pwd_patt" "$file"; then
-						       # Append to the output file
-						       grep -E "$pwd_patt" "$file" >> "$opfile"
-	                		fi
-           		 done
+			find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
+				if grep -qE "$pwd_patt" "$file"; then
+					# Append to the output file
+					grep -E "$pwd_patt" "$file" >> "$opfile"
+				fi
+			done
 		fi
 
 		#if it's a directory
