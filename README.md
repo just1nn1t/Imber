@@ -4,7 +4,7 @@ Imber is a scanner written in bash. Its main purpose is to find predefined infor
 ## Installation
 
 ```bash
-https://github.com/just1nn1t/Imber.git
+git clone https://github.com/just1nn1t/Imber.git
 ```
 
 ## Usage
