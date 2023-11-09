@@ -16,5 +16,10 @@ chmod +x imber.sh
 ./imber.sh </path/of/dir>
 
 ```
-# Warning:
+
+## Warning& license
+Copyright © 2023 just1nn1t
+
+All rights reserved. This project is licensed under GitHub's default copyright laws, meaning that I retain all rights to my source code and no one may reproduce, distribute, or create derivative works from my work.
+
 Only use this software according to your current legislation. Misuse of this software can raise legal and ethical issues which I don't support nor can be held responsible for.
