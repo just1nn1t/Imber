@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#you may change the hardcoded credentials
 pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
 
 scan_dir() {
