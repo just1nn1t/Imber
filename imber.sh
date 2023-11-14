@@ -47,24 +47,6 @@ start_scan() {
 }
 
 
-loading() {
-	chars="/-\|"
-	sc=0
-	dur=5
-	end=$((SECONDS + dur))
-
-	#SEC less than endtime
-	while [ $SECONDS -lt $end ]; do
-		printf "\r\b${chars:sc++:1} $1"
-		
-		#check to see if sc?=len(chars)
-		((sc==${#chars})) && sc=0
-		sleep 0.2
-	done
-	echo
-}
-
-
 cat << "EOF"
 
  ____  __  __  ____  ____  ____ 
@@ -77,8 +59,6 @@ cat << "EOF"
 EOF
 
 echo
-
-loading "Loading..."
 
 start_scan
 
