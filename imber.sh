@@ -9,7 +9,7 @@ pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
 
 scan_dir() {
 	local dir="$1"
-	local orig_dir="$(pwd)"
+	local origdir="$(pwd)"
 	local opfile="cred.txt"
 	
 	#loop through content
@@ -30,7 +30,7 @@ scan_dir() {
 		fi
 	done
 	
-	cd "$orig_dir"
+	cd "$origdir"
 }
 
 
