@@ -3,6 +3,7 @@
 #Copyright © 2023 just1nn1t
 #All rights reserved. This project is licensed under GitHub's default copyright laws,
 #meaning that I retain all rights to my source code and no one may reproduce, distribute, or create derivative works from my work.
+#This tool is meant for research and educational purposes only and any malicious usage of this tool is prohibited.
 
 #you may change the hardcoded credentials
 pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
