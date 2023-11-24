@@ -41,7 +41,7 @@ start_scan() {
 	#check if the dir exists
 	if [ ! -d "$scanable" ]; then
 		echo "Directory does not exist."
-		exit 1
+		exit 101
 	fi
 	
 	scan_dir "$scanable"
