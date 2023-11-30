@@ -6,9 +6,9 @@
 #This tool is meant for research and educational purposes only and any malicious usage of this tool is prohibited.
 
 #you may change the hardcoded credentials
-pwd_patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
+patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
 
-scan_dir() {
+scandir() {
 	local dir="$1"
 	local origdir="$(pwd)"
 	local opfile="cred.txt"
@@ -18,16 +18,16 @@ scan_dir() {
 		#if it's a file
 		if [ -f "$item" ]; then
 			find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
-				if grep -qE "$pwd_patt" "$file"; then
+				if grep -qE "$patt" "$file"; then
 					#append to the output file
-					grep -E "$pwd_patt" "$file" >> "$opfile"
+					grep -E "$patt" "$file" >> "$opfile"
 				fi
 			done
 		fi
 
 		#if it's a directory
 		elif [ -d "$item" ]; then
-			scan_dir "$item"
+			scandir "$item"
 		fi
 	done
 	
@@ -35,16 +35,16 @@ scan_dir() {
 }
 
 
-start_scan() {
+startscan() {
 	read -p "Enter the directory path to start scanning: " scanable
 	
 	#check if the dir exists
 	if [ ! -d "$scanable" ]; then
-		echo "Directory does not exist."
-		exit 101
+		echo "\e[91mDirectory does not exist.\e[0m"
+		exit 1
 	fi
 	
-	scan_dir "$scanable"
+	scandir "$scanable"
 }
 
 
@@ -67,6 +67,6 @@ EOF
 
 echo
 
-start_scan
+startscan
 
 echo "The scan has ended."
