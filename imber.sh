@@ -8,11 +8,11 @@
 #you may change the hardcoded credentials
 patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
 
+dir="$1"
+origdir="$(pwd)"
+opfile="cred.txt"
+
 scandir() {
-	local dir="$1"
-	local origdir="$(pwd)"
-	local opfile="cred.txt"
-	
 	#loop through content
 	for item in "$dir"/*; do
 		#if it's a file
