@@ -6,7 +6,7 @@
 #This tool is meant for research and educational purposes only and any malicious usage of this tool is prohibited.
 
 #you may change the hardcoded credentials
-patt="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$"
+patt=("awk '/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/'")
 
 dir="$1"
 origdir="$(pwd)"
