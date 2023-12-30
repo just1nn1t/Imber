@@ -6,7 +6,8 @@
 #This tool is meant for research and educational purposes only and any malicious usage of this tool is prohibited.
 
 #you may change the hardcoded credentials
-patt=("awk '/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/'")
+
+patt=("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$")
 
 scandir() {
 	local dir="$1"
@@ -18,10 +19,12 @@ scandir() {
 		#if it's a file
 		if [ -f "$item" ]; then
 			find "$scanable" -type f -print0 | while IFS= read -r -d '' file; do
-				if grep -qE "$patt" "$file"; then
-					#append to the output file
-					grep -E "$patt" "$file" >> "$opfile"
-				fi
+				for pat in "${patt[@]}"; do
+					if grep -qE "$pat" "$file"; then
+						#append to the output file
+						grep -E "$pat" "$file" >> "$opfile"
+					fi
+				done
 			done
 		fi
 
